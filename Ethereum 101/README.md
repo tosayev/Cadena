@@ -92,3 +92,12 @@ contract Bank {
 
 }
 ```
+
+## Moving Back to Visual Studio
+The course isn't clear about whether we are supposed to continue using Remix or we should be switching over to Visual Studio / Powershell / cmd but since it starts talking about Truffle, web3.js and Hardhat, at this stage I assume I need to switch over.
+
+I was rushing through the installation of Hardhat and at first skipped the step to install the dependencies so I got an error when I tried to do `npx hardhat` so I traced my steps back, installed the dependencies (below) and it worked fine.
+
+```
+npm install --save-dev @nomiclabs/hardhat-waffle@^2.0.0 ethereum-waffle@^3.0.0 chai@^4.2.0 @nomiclabs/hardhat-ethers@^2.0.0 ethers@^5.0.0
+```
