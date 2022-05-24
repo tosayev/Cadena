@@ -15,7 +15,7 @@ Next up, I needed some fake ether so I got some from the [Rinkeby Faucet](https:
 ### Problems with Visual Studio
 Although the instructions on Cadena recommend users to start their first smart contract on [Remix, IDE](http://remix.ethereum.org/), I like to make my life difficult and instead opted out for doing the entire courese in Visual Studio.  This turned out to be more difficult than I thought.
 
-To start working with smart contracts on Visual Studio, I first needed to (download the package that allows for Solidity syntax highlighting)(https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity) - pretty straightforward.
+To start working with smart contracts on Visual Studio, I first needed to download the [package that allows for Solidity syntax highlighting](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity) - pretty straightforward.
 
 Next up, I needed to install [Truffle Suite](https://trufflesuite.com/) - a development environment, testing framekwork and asset pipeline for blockchains using the Ethereum Virtual Machine (EVM) (source: [https://trufflesuite.com/](https://trufflesuite.com/)).  Unfortunately, this was easier said than done.
 
