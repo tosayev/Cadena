@@ -43,6 +43,10 @@ This lesson covers the basics of a smart contract by using the example of a bank
 >
 >A bank needs to keep a total balance of their funds, allow customers to deposit money, and withdraw money, and also ensure that money is being sent and received by the right customers so that there is no theft of funds.
 
+It's difficult as a regular program to understand how some of these financial concepts are turned into code.  I certainly struggled.  This is further complicated by the fact that now I had to think about functions that _cost real money_ to use.  Sure, in regular programming we think about memory - that's almost intuitive - but functions that actually cost money to use?  This was new to me and difficult to grasp.
+
+This module felt heavy for me but the course does a good job of going through it step by step so I imagine most people will be able to follow easily.
+
 ```solidity
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.0;
