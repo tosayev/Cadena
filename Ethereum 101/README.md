@@ -17,7 +17,7 @@ Although the instructions on Cadena recommend users to start their first smart c
 
 To start working with smart contracts on Visual Studio, I first needed to download the [package that allows for Solidity syntax highlighting](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity) - pretty straightforward.
 
-Next up, I needed to install [Truffle Suite](https://trufflesuite.com/) - a development environment, testing framekwork and asset pipeline for blockchains using the Ethereum Virtual Machine (EVM) (source: [https://trufflesuite.com/](https://trufflesuite.com/)).  Unfortunately, this was easier said than done.
+Next up, I needed to install [Truffle Suite](https://trufflesuite.com/) - a development environment, testing framekwork and asset pipeline for blockchains using the Ethereum Virtual Machine (EVM).  Unfortunately, this was easier said than done.
 
 Although in Visual Studio it was showing that Truffle was installed, the required folders & files were missing from the npm folder.  I searched around and looks like many people faced this issue and it was usually a question of updating node.js.  I already had the latest version of node.js so that did not work.  I downgraded my node.js to a previous version and that didn't work either.
 
