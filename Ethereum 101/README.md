@@ -22,3 +22,16 @@ Next up, I needed to install [Truffle Suite](https://trufflesuite.com/) - a deve
 Although in Visual Studio it was showing that Truffle was installed, the required folders & files were missing from the npm folder.  I searched around and looks like many people faced this issue and it was usually a question of updating node.js.  I already had the latest version of node.js so that did not work.  I downgraded my node.js to a previous version and that didn't work either.
 
 Then, I did a clean uninstall of node.js and reinstalled it - no luck.  At this stage, I was wasting too much time trying to figure this out so I put this aside for now to just get moving through the course.
+
+## Hello, World!
+First assignment was the classic "Hello, World!" code.  Pretty straightforward.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.3;
+
+contract HelloWorld {
+    string public greeting = "Hello World!";
+}
+```
+What I found interesting is that the instructions tell us to write `// SPDX-License-Identifier: MIT*` with an asterisk but this gives an error in Visual Studio.
