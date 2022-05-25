@@ -96,6 +96,8 @@ contract Bank {
 ## Moving Back to Visual Studio
 The course isn't clear about whether we are supposed to continue using Remix or we should be switching over to Visual Studio / Powershell / cmd but since it starts talking about Truffle, web3.js and Hardhat, at this stage I assume I need to switch over.
 
+*WARNING:* if you're using a public Git, create a .gitignore file in your Git and add the "bank-smartcontract" folder into it to stop uploading the entire "bank-smartcontract" folder onto the public domain.  There are some vulnerabilities and some private information in the code which would be risky to share publicly.
+
 I was rushing through the installation of Hardhat and at first skipped the step to install the dependencies so I got an error when I tried to do `npx hardhat` so I traced my steps back, installed the dependencies (below) and it worked fine.
 
 ```
