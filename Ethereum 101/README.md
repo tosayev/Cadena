@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 # Ethereum 101
 This is a course on Cadena that teaches how to build dapps, smart contracts, and deploy them to the Ethereum Blockchain.  This course can be completed over a weekend and includes 3 projects that can be added to your portfolio.
 
@@ -222,4 +221,3 @@ Please install Hardhat locally using npm or Yarn, and try again.
 Tried to reinstalling, installing, updating, clearing cache, etc. and although the first time around I got the same error, the second time around (couldn't figure out what I did different), it all went back to normal.
 
 Few more steps and I finally deployed my contract.  It can be viewed [here](https://rinkeby.etherscan.io/address/0xC98b60906354089f3BD2B87213c23b5f136223C3).
->>>>>>> Stashed changes
