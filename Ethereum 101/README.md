@@ -221,3 +221,10 @@ Please install Hardhat locally using npm or Yarn, and try again.
 Tried to reinstalling, installing, updating, clearing cache, etc. and although the first time around I got the same error, the second time around (couldn't figure out what I did different), it all went back to normal.
 
 Few more steps and I finally deployed my contract.  It can be viewed [here](https://rinkeby.etherscan.io/address/0x0a497BD6b315f38CAbC14600fBd5A98EEdb50e31).
+
+## Building a DApp
+Next part of the lesson covered building a dapp which was incredibly exciting, especially for me after being a regular user of many dapps.
+
+The section was tough, very dense but the structure was easy to follow.  Only issues I faced:
+1. Forgot quotations around the contract address in App.js which made the app read the address as a number in hex.
+2. Kept getting an error in `withDrawMoneyHandler` which turns out was due to an error in the code.  In BankContract.sol, the function is defined as `withdrawMoney(address payable _to, uint256 _total)` so naturally, this is maintained when it's converted to a .json and finally went it's called in App.js, using a different case throws an error.
