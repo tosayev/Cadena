@@ -14,7 +14,6 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  console.log(hre);
   const [owner] = await hre.ethers.getSigners();
   const shipAgentContractFactory = await hre.ethers.getContractFactory("shipAgent");
   const shipAgentContract = await shipAgentContractFactory.deploy();

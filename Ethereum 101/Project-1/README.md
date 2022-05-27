@@ -27,12 +27,21 @@ For simplicity, I will also exclude:
 - pilotage fees
 - tanker tugboat escort fees
 
-Calculation of Sanitary Dues is as follows: 0.0604 x USD/TRY exchange rate x vessel’s NT
-Calculation of Light Dues is as follows: 0.169323 x vessel’s NT
-Calculation of Salvage Dues is as follows: 0.08063 x vessel's NT
+Calculation of Sanitary Dues is as follows: `0.0604 x USD/TRY exchange rate x vessel’s NT`
+Calculation of Light Dues is as follows: `0.169323 x vessel’s NT`
+Calculation of Salvage Dues is as follows: `0.08063 x vessel's NT`
 
 Although most agencies charge their service fees on a scale dependent on vessel's NT, I will keep it simple and make it a flat fee of 500 USD.
 
-A shipowner should be able to input the vessel's IMO number and NT and the contract should generate the PDA.
+We have two counterparts to this contract:
+1. Ship Operator
+2. Agency Owner
 
-The amount generated in the PDA will have to be paid by the operator to get approval to transit.
+This is how the contract works:
+1. Agency Owner deploys the contract and names the agency.  Only the Agency Owner can name the agency.
+2. Ship Operator inputs the ship's IMO number (for indetification) and Net Tonnage.
+3. The contract calculates the required dues.
+4. The Ship Operator needs to deposit at least the required dues.  They can do this in one transaction or multiple transactions.
+5. Once the deposited amount exceeds the required dues, the Ship Operator can request clearance to transit.  Until the Ship Operator requests clearance, they will have the option to deposit or withdraw funds from their balance.
+6. Once the clearance is requested & approved, the dues is deducted from the Ship Operator's balance with the agency.
+7. If there are outstanding amounts, the Ship Operator can withdraw it or leave it to be used on another transit.
