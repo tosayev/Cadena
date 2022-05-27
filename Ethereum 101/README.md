@@ -228,3 +228,7 @@ Next part of the lesson covered building a dapp which was incredibly exciting, e
 The section was tough, very dense but the structure was easy to follow.  Only issues I faced:
 1. Forgot quotations around the contract address in App.js which made the app read the address as a number in hex.
 2. Kept getting an error in `withDrawMoneyHandler` which turns out was due to a simple case error.  In BankContract.sol, the function is defined as `withdrawMoney(address payable _to, uint256 _total)` but I had forgotten about that and just followed the course instruction.  In the course instruction, in App.js, the used case is `withDrawMoney` so I just blindly typed that into App.js without looking back to what I had used in BankContract.sol.  Anyway, was pretty easy to find and resolve & I also made a pull request to correct the code in the course.
+
+After following all the steps and deploying my first dapp ever (deployed locally), it was an incredible moment.  My end result exactly matched the [final product](https://cadena-bank-dapp.vercel.app/) demonstrated in the course.
+
+I could deposit, withdraw, rename the bank.  Just like that - from zero knowledge of Solidity, dapps, Smart Contracts, etc. to deploying an app in 2 days with a very well designed course...for free!
