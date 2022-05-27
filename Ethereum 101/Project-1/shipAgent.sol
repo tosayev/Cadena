@@ -5,54 +5,69 @@ contract shipAgent {
     // Declare state variables at contract level.  These variables
     // will be stored on the blockchain and cost gas therefore should only
     // be the most critical variables required to execute the contract.
-    address public shipOwner; // need to know who owns the ship
+    address public agencyOwner; // need to know who owns the agency.  Only the Agency Owner can change the name of the agency
+    string public agencyName; // need to uniqely identify the ship with IMO number
     string public shipIMO; // need to uniqely identify the ship with IMO number
-    string public netTonnage; // need to ensure the paid fee corresponds to the required amount according to the net tonnage
-    mapping (address => uint256) public ownerBalance; // create mapping
+    string public netTonnage; // need to identify ship's net tonnage
+    mapping (address => uint256) public shipAccountBalance; // create mapping
 
 
     //constructor will only run once, when the contract is deployed
     constructor() {
-        // We're setting the ship owner to the Ethereum address that deploys
+        // We're setting the Agency Owner to the Ethereum address that deploys
         // the contract.  msg.sender is a global variable that stores the address
         // of the account that initiates the transaction.
-        shipOwner = msg.sender;
+        agencyOwner = msg.sender;
     }
-    function setShipIMO(string memory _name) external {
-        // This function sets the IMO number of the ship.  Only the owner is allowed to declare the ship's IMO number.
-        require(msg.sender == shipOwner, "You must be the ship owner to set the IMO number of the ship");
-        shipIMO = _name;
+    
+    function setAgencyName(string memory _name) external {
+        // This function sets the IMO number of the ship.  Only the Agency Owner can set the name of the agency.
+        require(msg.sender == agencyOwner, "You must be the owner to set the name of the agency.");
+        agencyName = _name;
     }
 
-    function setShipNetTonnage(string memory _tonnage) external {
-        // This function sets the net tonnage of the ship.  Only the owner is allowed to declare the ship's net tonnage.
-        require(msg.sender == shipOwner, "You must be the ship owner to set the net tonnage of the ship");
-        netTonnage = _tonnage;
+    function setShipNetTonnage(string memory _shipNetTonnage) external {
+        // This function sets the Net Tonnage of the ship.  Anyone can set the IMO number of the ship.
+        netTonnage = _shipNetTonnage;
+    }
+
+    function setShipIMO(string memory _shipIMONumber) external {
+        // This function sets the IMO number of the ship.  Anyone can set the IMO number of the ship.
+        shipIMO = _shipIMONumber;
     }
 
     function depositMoney() public payable {
-        // This function is to allow the ship owner to deposit funds into the agents account
-        // which practically means paying the DA.
+        // This function allows the Ship Operator to deposit funds into the ship's account with the agent
+        // which practically means paying the DA.  The amount needs to be >0.
         require(msg.value != 0, "You need to deposit some amount of money!");
-        ownerBalance[msg.sender] += msg.value;
+        shipAccountBalance[msg.sender] += msg.value;
+    }
+
+    function payDues(uint256 _dues) public {
+        // After depositing sufficient funds in the ship's account with the agent, the Ship Operator can
+        // request transit clearance.  For clearance, the required dues needs to be subtracted from the ship's
+        // balance.  The dues must be less than the ship's account balance with the agent.
+        require(_dues <= shipAccountBalance[msg.sender], "You need to deposit more money.");
+        shipAccountBalance[msg.sender] -= _dues;
     }
         
+        
     function withdrawMoney(address payable _to, uint256 _total) public {
-        // In case the owner overpays there needs to be a way for them to withdraw the extra amount.  This function
-        // allows the owner to withdraw any amount up to the credit balance.
-        require(_total <= ownerBalance[msg.sender], "You have insufficient funds to withdraw.");
-        ownerBalance[msg.sender] -= _total;
+        // This function allows the Ship Operator to withdraw funds from the ship's account with the agent.
+        // The amount must be <=shipAccountBalance.
+        require(_total <= shipAccountBalance[msg.sender], "You have insufficient funds to withdraw.");
+        shipAccountBalance[msg.sender] -= _total;
         _to.transfer(_total);
     }
 
-    function getOwnerBalance() external view returns (uint256) {
-        // This function returns the owners's balance with the agent.
-        return ownerBalance[msg.sender];
+    function getShipAccountBalance() external view returns (uint256) {
+        // This function returns the ship's balance with the agent.
+        return shipAccountBalance[msg.sender];
     }
     
-    function getDABalance() public view returns (uint256) {
-        // We want only the ship owner to see all balances they may/may not have with the agent.
-        require(msg.sender == shipOwner, "You must be the owner of the ship to see all balances.");
+    function getAgencyBalance() public view returns (uint256) {
+        // We want only the agency owner to see all balances.
+        require(msg.sender == agencyOwner, "You must be the owner of the agency to see all balances.");
         return address(this).balance;
     }
 }

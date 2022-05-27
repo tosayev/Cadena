@@ -26,8 +26,8 @@ For simplicity, I will also exclude:
 - dangerous goods surcharge
 - pilotage fees
 - tanker tugboat escort fees
+- sanitary dues
 
-Calculation of Sanitary Dues is as follows: `0.0604 x USD/TRY exchange rate x vessel’s NT`
 Calculation of Light Dues is as follows: `0.169323 x vessel’s NT`
 Calculation of Salvage Dues is as follows: `0.08063 x vessel's NT`
 
