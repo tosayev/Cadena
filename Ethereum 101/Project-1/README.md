@@ -28,10 +28,12 @@ For simplicity, I will also exclude:
 - tanker tugboat escort fees
 - sanitary dues
 
-Calculation of Light Dues is as follows: `0.169323 x vessel’s NT`
-Calculation of Salvage Dues is as follows: `0.08063 x vessel's NT`
+The "dues" are calculated as follows:
+- Light Dues: `0.169323 x vessel’s NT`
+- Salvage Dues: `0.08063 x vessel's NT`
+- Agency Dues: flatt fee of 500 USD
 
-Although most agencies charge their service fees on a scale dependent on vessel's NT, I will keep it simple and make it a flat fee of 500 USD.
+The number will generally be under $50,000 but since we are testing and we are limited by a budget of up to 0.1 ETH, in our fictional scenario, we'll divide the calculated dues by 100,000 to get a value in ETH that will always be under 0.1 ETH.
 
 We have two counterparts to this contract:
 1. Ship Operator
@@ -40,8 +42,8 @@ We have two counterparts to this contract:
 This is how the contract works:
 1. Agency Owner deploys the contract and names the agency.  Only the Agency Owner can name the agency.
 2. Ship Operator inputs the ship's IMO number (for indetification) and Net Tonnage.
-3. The contract calculates the required dues.
+3. The dues are calculated.
 4. The Ship Operator needs to deposit at least the required dues.  They can do this in one transaction or multiple transactions.
-5. Once the deposited amount exceeds the required dues, the Ship Operator can request clearance to transit.  Until the Ship Operator requests clearance, they will have the option to deposit or withdraw funds from their balance.
-6. Once the clearance is requested & approved, the dues is deducted from the Ship Operator's balance with the agency.
+5. Once the deposited amount exceeds the required dues, the Ship Operator can request clearance to transit.
+6. Once the clearance is requested & approved, the dues is deducted from the Ship Operator's balance.
 7. If there are outstanding amounts, the Ship Operator can withdraw it or leave it to be used on another transit.
